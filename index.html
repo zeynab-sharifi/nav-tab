@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nav-tab</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
         <div class="container">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation" v-for="{ title } in tabs">
-              <button class="nav-link" :class="{ 'active' : currentTab == title }" id="Home" data-bs-target="#Home" type="button" @click="currentTab = title" >{{title}}</button>
-            </li>
-          </ul>
+          <div class="main-menu">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation" v-for="{ title } in tabs">
+                <button class="nav-link" :class="{ 'active' : currentTab == title }" id="Home" data-bs-target="#Home" type="button" @click="currentTab = title" >{{title}}</button>
+              </li>
+            </ul>
+          </div>
           <div class="tab-content" id="myTabContent">
-            <!-- v-if="currentTab == 'Home'" -->
             <div class="tab-pane fade show active" v-for="{content , title} in tabs" v-show="currentTab == title">{{ content }}</div>
           </div>
         </div>
@@ -33,15 +34,15 @@
                     tabs:[
                         {
                           title : 'Home',
-                          content : 'home content'
+                          content : 'home content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
                         },
                         {
                           title : 'profile',
-                          content : 'profile content'
+                          content : 'profile content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
                         },
                         {
                           title : 'contact',
-                          content : 'contact content'
+                          content : 'contact content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
                         },
                     ]
                   }
