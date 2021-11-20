@@ -12,20 +12,13 @@
     <div id="app">
         <div class="container">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" :class="{ 'active' : currentTab == 'Home'}" id="Home" data-bs-target="#home" type="button" @click="currentTab ='Home'" >Home</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" :class="{ 'active' : currentTab == 'profile'}" id="profile" data-bs-target="#profile" type="button" @click="currentTab ='profile'">Profile</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" :class="{ 'active' : currentTab == 'contact'}" id="contact" data-bs-target="#contact" type="button" @click="currentTab ='contact'">Contact</button>
+            <li class="nav-item" role="presentation" v-for="{ title } in tabs">
+              <button class="nav-link" :class="{ 'active' : currentTab == title }" id="Home" data-bs-target="#Home" type="button" @click="currentTab = title" >{{title}}</button>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="Home" v-if="currentTab == 'Home'">.h.</div>
-            <div class="tab-pane fade" id="profile" v-else-if="currentTab == 'profile'">p</div>
-            <div class="tab-pane fade" id="contact" v-else="currentTab == 'contact'">.c</div>
+            <!-- v-if="currentTab == 'Home'" -->
+            <div class="tab-pane fade show active" v-for="{content , title} in tabs" v-show="currentTab == title">{{ content }}</div>
           </div>
         </div>
     </div>
@@ -36,7 +29,21 @@
           const App ={
               data(){
                   return{
-                    currentTab : 'Home'
+                    currentTab : 'Home',
+                    tabs:[
+                        {
+                          title : 'Home',
+                          content : 'home content'
+                        },
+                        {
+                          title : 'profile',
+                          content : 'profile content'
+                        },
+                        {
+                          title : 'contact',
+                          content : 'contact content'
+                        },
+                    ]
                   }
               }
           }
